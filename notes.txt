@@ -1,0 +1,18 @@
+- Save pill times (name, size, time of day)
+- Search start location (default current)
+- Search destination
+- Enter flight date
+
+- Each pill time should find closest destination possibility. That is, for 2 pills and 12 hours the pills just swap!
+
+- If dramatic change would be required (e.g. more than half an hour a day) and new pill times would not be at night then pill time of day should be changed
+
+Change Before Flight:
+- At most half an hour a day
+- If actual destination time is in current night then effective destination time is night limit between current time and destination time
+- e.g. if destination time is 12pm here and current time is 10pm then effective destination time is 11pm
+- Change per day should be (current time - effective destination time) / days till trip
+
+Change After Flight:
+- At most half an hour a day
+- Convert from current time to destination time in half hour increments

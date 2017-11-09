@@ -31,14 +31,15 @@ public class TimeOfDay: Equatable, CustomStringConvertible {
         var newHour = self.hour + hours
         var newMinute = self.minute + minutes
         if newMinute < 0 {
-            newMinute = 60 - newMinute
+            newMinute = 60 + newMinute
             newHour -= 1
         }
         if newMinute >= 60 {
             newMinute -= 60
+            newHour += 1
         }
         if newHour < 0 {
-            newHour = 24 - newHour
+            newHour = 24 + newHour
         }
         if newHour >= 24 {
             newHour -= 24

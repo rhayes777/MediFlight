@@ -37,10 +37,14 @@ class PillZonesTests: XCTestCase {
     
     func testApparentNewTimeOfDay() {
         XCTAssertEqual(TimeOfDay(hour:4, minute: 30), flight!.apparentNewTimeOfDay(timeOfDay: TimeOfDay(hour:10, minute: 0)))
+        XCTAssertEqual(TimeOfDay(hour:22, minute: 30), flight!.apparentNewTimeOfDay(timeOfDay: TimeOfDay(hour:4, minute: 0)))
+        XCTAssertEqual(TimeOfDay(hour:23, minute: 35), flight!.apparentNewTimeOfDay(timeOfDay: TimeOfDay(hour:5, minute: 5)))
     }
     
     func testApparentOldTimeOfDay() {
         XCTAssertEqual(TimeOfDay(hour:15, minute:30), flight!.apparentOldTimeOfDay(timeOfDay: TimeOfDay(hour:10, minute:0)))
+        XCTAssertEqual(TimeOfDay(hour:4, minute:30), flight!.apparentOldTimeOfDay(timeOfDay: TimeOfDay(hour:23, minute:0)))
+        XCTAssertEqual(TimeOfDay(hour:0, minute:5), flight!.apparentOldTimeOfDay(timeOfDay: TimeOfDay(hour:18, minute:35)))
     }
     
 }

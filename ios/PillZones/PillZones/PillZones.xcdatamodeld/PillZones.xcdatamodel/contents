@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13241" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Dose" representedClassName="Dose" syncable="YES">
+        <relationship name="pills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pill" inverseName="doses" inverseEntity="Pill" syncable="YES"/>
+        <relationship name="timeOfDay" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimeOfDay" inverseName="doses" inverseEntity="TimeOfDay" syncable="YES"/>
+    </entity>
     <entity name="Flight" representedClassName="Flight" syncable="YES">
         <attribute name="from" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="on" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="to" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Pill" representedClassName="Pill" syncable="YES">
+        <attribute name="dosage" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="doses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Dose" inverseName="pills" inverseEntity="Dose" syncable="YES"/>
+    </entity>
+    <entity name="TimeOfDay" representedClassName="TimeOfDay" syncable="YES">
+        <attribute name="hour" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="minute" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="doses" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dose" inverseName="timeOfDay" inverseEntity="Dose" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Flight" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="TimeOfDay" positionX="-63" positionY="9" width="128" height="90"/>
+        <element name="Dose" positionX="-54" positionY="18" width="128" height="75"/>
+        <element name="Pill" positionX="-36" positionY="45" width="128" height="90"/>
     </elements>
 </model>

@@ -20,6 +20,12 @@
 		5B06C06C1FB4662C00516682 /* Flight+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06C0671FB45F1900516682 /* Flight+CoreDataProperties.swift */; };
 		5BA23DE71FB4921F00C7B39A /* PillZones.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B06C0461FB456C100516682 /* PillZones.xcdatamodeld */; };
 		5BA23DE91FB493E700C7B39A /* MockDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DE81FB493E700C7B39A /* MockDatabaseManager.swift */; };
+		5BA23DF01FB49AD700C7B39A /* Pill+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DEA1FB49AD700C7B39A /* Pill+CoreDataClass.swift */; };
+		5BA23DF11FB49AD700C7B39A /* Pill+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DEB1FB49AD700C7B39A /* Pill+CoreDataProperties.swift */; };
+		5BA23DF21FB49AD700C7B39A /* Dose+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DEC1FB49AD700C7B39A /* Dose+CoreDataClass.swift */; };
+		5BA23DF31FB49AD700C7B39A /* Dose+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DED1FB49AD700C7B39A /* Dose+CoreDataProperties.swift */; };
+		5BA23DF41FB49AD700C7B39A /* TimeOfDay+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DEE1FB49AD700C7B39A /* TimeOfDay+CoreDataClass.swift */; };
+		5BA23DF51FB49AD700C7B39A /* TimeOfDay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DEF1FB49AD700C7B39A /* TimeOfDay+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,12 @@
 		5B06C0661FB45F1900516682 /* Flight+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5B06C0671FB45F1900516682 /* Flight+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5BA23DE81FB493E700C7B39A /* MockDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDatabaseManager.swift; sourceTree = "<group>"; };
+		5BA23DEA1FB49AD700C7B39A /* Pill+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pill+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5BA23DEB1FB49AD700C7B39A /* Pill+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pill+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5BA23DEC1FB49AD700C7B39A /* Dose+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dose+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5BA23DED1FB49AD700C7B39A /* Dose+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dose+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5BA23DEE1FB49AD700C7B39A /* TimeOfDay+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeOfDay+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5BA23DEF1FB49AD700C7B39A /* TimeOfDay+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeOfDay+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +82,12 @@
 		5B06C0331FB456C000516682 = {
 			isa = PBXGroup;
 			children = (
+				5BA23DEA1FB49AD700C7B39A /* Pill+CoreDataClass.swift */,
+				5BA23DEB1FB49AD700C7B39A /* Pill+CoreDataProperties.swift */,
+				5BA23DEC1FB49AD700C7B39A /* Dose+CoreDataClass.swift */,
+				5BA23DED1FB49AD700C7B39A /* Dose+CoreDataProperties.swift */,
+				5BA23DEE1FB49AD700C7B39A /* TimeOfDay+CoreDataClass.swift */,
+				5BA23DEF1FB49AD700C7B39A /* TimeOfDay+CoreDataProperties.swift */,
 				5B06C0661FB45F1900516682 /* Flight+CoreDataClass.swift */,
 				5B06C0671FB45F1900516682 /* Flight+CoreDataProperties.swift */,
 				5B06C03E1FB456C100516682 /* PillZones */,
@@ -228,9 +246,15 @@
 			files = (
 				5BA23DE91FB493E700C7B39A /* MockDatabaseManager.swift in Sources */,
 				5B06C06C1FB4662C00516682 /* Flight+CoreDataProperties.swift in Sources */,
+				5BA23DF41FB49AD700C7B39A /* TimeOfDay+CoreDataClass.swift in Sources */,
+				5BA23DF21FB49AD700C7B39A /* Dose+CoreDataClass.swift in Sources */,
+				5BA23DF51FB49AD700C7B39A /* TimeOfDay+CoreDataProperties.swift in Sources */,
+				5BA23DF01FB49AD700C7B39A /* Pill+CoreDataClass.swift in Sources */,
 				5B06C0581FB456C100516682 /* PillZonesTests.swift in Sources */,
+				5BA23DF11FB49AD700C7B39A /* Pill+CoreDataProperties.swift in Sources */,
 				5BA23DE71FB4921F00C7B39A /* PillZones.xcdatamodeld in Sources */,
 				5B06C06B1FB465B400516682 /* Flight+CoreDataClass.swift in Sources */,
+				5BA23DF31FB49AD700C7B39A /* Dose+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

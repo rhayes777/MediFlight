@@ -13,12 +13,12 @@ import CoreData
 @objc(Flight)
 public class Flight: NSManagedObject {
     
-    class func make(from: String, to: String, on: NSDate, context: NSManagedObjectContext)->Flight {
-        let flight = NSEntityDescription.insertNewObject(forEntityName: "Flight", into: context) as! Flight
-        flight.from = from
-        flight.to = to
-        flight.on = on
-        return flight
+    public init(from: String, to: String, on: NSDate, context: NSManagedObjectContext?) {
+        super.init(entity: (context?.persistentStoreCoordinator?.managedObjectModel.entitiesByName["Flight"]!)!, insertInto: context)
+        
+        self.from = from
+        self.to = to
+        self.on = on
     }
     
     var originTimeZone: TimeZone {

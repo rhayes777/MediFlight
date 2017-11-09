@@ -50,7 +50,7 @@ class PillZonesTests: XCTestCase {
         print(date_1973)
         print(TimeZone(identifier: "Europe/London")!.secondsFromGMT(for: date_1973))
         
-        let flight = Flight.make(from: "Europe/London", to: "Asia/Katmandu", on: date_1973 as NSDate, context: self.setUpInMemoryManagedObjectContext())
+        let flight = Flight(from: "Europe/London", to: "Asia/Katmandu", on: date_1973 as NSDate, context: self.setUpInMemoryManagedObjectContext())
         XCTAssertEqual(date_1973, flight.on! as Date)
         XCTAssertEqual("Europe/London", flight.from!)
         XCTAssertEqual("Asia/Katmandu", flight.to!)

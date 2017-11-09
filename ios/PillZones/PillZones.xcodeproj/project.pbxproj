@@ -24,8 +24,12 @@
 		5BA23DF11FB49AD700C7B39A /* Pill+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DEB1FB49AD700C7B39A /* Pill+CoreDataProperties.swift */; };
 		5BA23DF21FB49AD700C7B39A /* Dose+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DEC1FB49AD700C7B39A /* Dose+CoreDataClass.swift */; };
 		5BA23DF31FB49AD700C7B39A /* Dose+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DED1FB49AD700C7B39A /* Dose+CoreDataProperties.swift */; };
-		5BA23DF41FB49AD700C7B39A /* TimeOfDay+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DEE1FB49AD700C7B39A /* TimeOfDay+CoreDataClass.swift */; };
-		5BA23DF51FB49AD700C7B39A /* TimeOfDay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DEF1FB49AD700C7B39A /* TimeOfDay+CoreDataProperties.swift */; };
+		5BA23DF41FB49AD700C7B39A /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DEE1FB49AD700C7B39A /* TimeOfDay.swift */; };
+		5BA23DF61FB49EB800C7B39A /* Pill+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DEA1FB49AD700C7B39A /* Pill+CoreDataClass.swift */; };
+		5BA23DF71FB49EBB00C7B39A /* Pill+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DEB1FB49AD700C7B39A /* Pill+CoreDataProperties.swift */; };
+		5BA23DF81FB49EC100C7B39A /* Dose+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DEC1FB49AD700C7B39A /* Dose+CoreDataClass.swift */; };
+		5BA23DF91FB49EC100C7B39A /* Dose+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DED1FB49AD700C7B39A /* Dose+CoreDataProperties.swift */; };
+		5BA23DFA1FB49EC100C7B39A /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DEE1FB49AD700C7B39A /* TimeOfDay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +61,7 @@
 		5BA23DEB1FB49AD700C7B39A /* Pill+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pill+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5BA23DEC1FB49AD700C7B39A /* Dose+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dose+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5BA23DED1FB49AD700C7B39A /* Dose+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dose+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		5BA23DEE1FB49AD700C7B39A /* TimeOfDay+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeOfDay+CoreDataClass.swift"; sourceTree = "<group>"; };
-		5BA23DEF1FB49AD700C7B39A /* TimeOfDay+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeOfDay+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5BA23DEE1FB49AD700C7B39A /* TimeOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +89,7 @@
 				5BA23DEB1FB49AD700C7B39A /* Pill+CoreDataProperties.swift */,
 				5BA23DEC1FB49AD700C7B39A /* Dose+CoreDataClass.swift */,
 				5BA23DED1FB49AD700C7B39A /* Dose+CoreDataProperties.swift */,
-				5BA23DEE1FB49AD700C7B39A /* TimeOfDay+CoreDataClass.swift */,
-				5BA23DEF1FB49AD700C7B39A /* TimeOfDay+CoreDataProperties.swift */,
+				5BA23DEE1FB49AD700C7B39A /* TimeOfDay.swift */,
 				5B06C0661FB45F1900516682 /* Flight+CoreDataClass.swift */,
 				5B06C0671FB45F1900516682 /* Flight+CoreDataProperties.swift */,
 				5B06C03E1FB456C100516682 /* PillZones */,
@@ -234,9 +236,14 @@
 			files = (
 				5B06C0481FB456C100516682 /* PillZones.xcdatamodeld in Sources */,
 				5B06C0421FB456C100516682 /* ViewController.swift in Sources */,
+				5BA23DFA1FB49EC100C7B39A /* TimeOfDay.swift in Sources */,
+				5BA23DF81FB49EC100C7B39A /* Dose+CoreDataClass.swift in Sources */,
+				5BA23DF61FB49EB800C7B39A /* Pill+CoreDataClass.swift in Sources */,
 				5B06C0691FB45F1900516682 /* Flight+CoreDataProperties.swift in Sources */,
+				5BA23DF71FB49EBB00C7B39A /* Pill+CoreDataProperties.swift in Sources */,
 				5B06C0401FB456C100516682 /* AppDelegate.swift in Sources */,
 				5B06C0681FB45F1900516682 /* Flight+CoreDataClass.swift in Sources */,
+				5BA23DF91FB49EC100C7B39A /* Dose+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,9 +253,8 @@
 			files = (
 				5BA23DE91FB493E700C7B39A /* MockDatabaseManager.swift in Sources */,
 				5B06C06C1FB4662C00516682 /* Flight+CoreDataProperties.swift in Sources */,
-				5BA23DF41FB49AD700C7B39A /* TimeOfDay+CoreDataClass.swift in Sources */,
+				5BA23DF41FB49AD700C7B39A /* TimeOfDay.swift in Sources */,
 				5BA23DF21FB49AD700C7B39A /* Dose+CoreDataClass.swift in Sources */,
-				5BA23DF51FB49AD700C7B39A /* TimeOfDay+CoreDataProperties.swift in Sources */,
 				5BA23DF01FB49AD700C7B39A /* Pill+CoreDataClass.swift in Sources */,
 				5B06C0581FB456C100516682 /* PillZonesTests.swift in Sources */,
 				5BA23DF11FB49AD700C7B39A /* Pill+CoreDataProperties.swift in Sources */,

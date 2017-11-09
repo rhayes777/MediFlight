@@ -17,7 +17,8 @@ extension Dose {
         return NSFetchRequest<Dose>(entityName: "Dose")
     }
 
-    @NSManaged public var timeOfDay: TimeOfDay?
+    @NSManaged public var hour: Int16
+    @NSManaged public var minute: Int16
     @NSManaged public var pills: NSSet?
 
 }

@@ -31,12 +31,17 @@ class PillZonesTests: XCTestCase {
     }
     
     func testTimeDifference() {
-        context = MockDatabaseManager().managedObjectContext()
         date_1973 = Date(timeIntervalSince1970: 100000000)
-        flight = Flight(from: "Europe/London", to: "Asia/Katmandu", on: date_1973 as NSDate, context: context)
+        XCTAssertEqual(19800, flight!.timeDifference)
+    }
+    
+    func testApparentNewTimeOfDay() {
         // 5 hours 30 minutes
         
-        XCTAssertEqual(19800, flight!.timeDifference)
+        let there = flight!.apparentNewTimeOfDay(timeOfDay: TimeOfDay(hour:10, minute: 0))
+        print(there)
+        
+        XCTAssertEqual(TimeOfDay(hour:4, minute: 30), there)
     }
     
 }

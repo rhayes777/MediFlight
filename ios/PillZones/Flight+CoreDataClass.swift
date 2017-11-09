@@ -36,22 +36,13 @@ public class Flight: NSManagedObject {
     func apparentNewTimeOfDay(timeOfDay: TimeOfDay) -> TimeOfDay {
         let hoursDifference = -self.timeDifference / 3600
         let minutesDifference = (-self.timeDifference / 60) % 60
-        var newHour = timeOfDay.hour + hoursDifference
-        var newMinute = timeOfDay.minute + minutesDifference
-        if newMinute < 0 {
-            newMinute = 60 - newMinute
-            newHour -= 1
-        }
-        if newMinute >= 60 {
-            newMinute -= 60
-        }
-        if newHour < 0 {
-            newHour = 24 - newHour
-        }
-        if newHour >= 24 {
-            newHour -= 24
-        }
-        return TimeOfDay(hour: newHour, minute: newMinute)
+        return timeOfDay.shiftedBy(hours: hoursDifference, minutes: minutesDifference)
+    }
+    
+    func apparentOldTimeOfDay(timeOfDay: TimeOfDay) -> TimeOfDay {
+        let hoursDifference = self.timeDifference / 3600
+        let minutesDifference = (self.timeDifference / 60) % 60
+        return timeOfDay.shiftedBy(hours: hoursDifference, minutes: minutesDifference)
     }
 
 }

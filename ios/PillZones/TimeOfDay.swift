@@ -26,5 +26,24 @@ public class TimeOfDay: Equatable, CustomStringConvertible {
     public var description: String {
         return "\(String(format: "%02d", self.hour)):\(String(format: "%02d", self.minute))"
     }
+    
+    public func shiftedBy(hours: Int=0, minutes: Int=0)->TimeOfDay {
+        var newHour = self.hour + hours
+        var newMinute = self.minute + minutes
+        if newMinute < 0 {
+            newMinute = 60 - newMinute
+            newHour -= 1
+        }
+        if newMinute >= 60 {
+            newMinute -= 60
+        }
+        if newHour < 0 {
+            newHour = 24 - newHour
+        }
+        if newHour >= 24 {
+            newHour -= 24
+        }
+        return TimeOfDay(hour: newHour, minute: newMinute)
+    }
 
 }

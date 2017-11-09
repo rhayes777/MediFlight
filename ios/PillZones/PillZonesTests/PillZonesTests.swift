@@ -16,6 +16,7 @@ class PillZonesTests: XCTestCase {
     
     var context = MockDatabaseManager().managedObjectContext()
     var date_1973 = Date(timeIntervalSince1970: 100000000)
+    var pill: Pill?
     var flight: Flight?
     
     override func setUp() {
@@ -23,6 +24,7 @@ class PillZonesTests: XCTestCase {
         context = MockDatabaseManager().managedObjectContext()
         date_1973 = Date(timeIntervalSince1970: 100000000)
         flight = Flight(from: "Europe/London", to: "Asia/Katmandu", on: date_1973 as NSDate, context: context)
+        pill = Pill(name: "Kepra", dosage: 500, context: context)
     }
     
     override func tearDown() {
@@ -47,4 +49,18 @@ class PillZonesTests: XCTestCase {
         XCTAssertEqual(TimeOfDay(hour:0, minute:5), flight!.apparentOldTimeOfDay(timeOfDay: TimeOfDay(hour:18, minute:35)))
     }
     
+    func testSimpleSchedule() {
+        let tenDaysBefore = Calendar.current.date(byAdding: .day, value: -10, to: date_1973)
+        let results = flight!.schedule(doses: [Dose(timeOfDay: TimeOfDay(hour: 12), pills:[pill!], context: context)], fromDate: tenDaysBefore!)
+        XCTAssertEqual(10, results.count)
+    }
+    
 }
+
+
+
+
+
+
+
+

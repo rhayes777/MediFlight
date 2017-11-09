@@ -44,5 +44,15 @@ public class Flight: NSManagedObject {
         let minutesDifference = (self.timeDifference / 60) % 60
         return timeOfDay.shiftedBy(hours: hoursDifference, minutes: minutesDifference)
     }
+    
+    func schedule(doses: [Dose], fromDate: Date) -> [(Date, [Dose])] {
+        let timeInterval = (self.on! as Date).timeIntervalSince(fromDate)
+        let days = Int(timeInterval / (3600 * 24))
+        var tuples: [(Date, [Dose])] = []
+        for day in 0..<days {
+            tuples.append((fromDate + TimeInterval(3600 * 24 * day), doses))
+        }
+        return tuples
+    }
 
 }

@@ -14,7 +14,7 @@ public class TimeOfDay: Equatable, CustomStringConvertible {
     let hour: Int
     let minute: Int
     
-    public init(hour: Int, minute: Int) {
+    public init(hour: Int, minute: Int=0) {
         self.hour = hour
         self.minute = minute
     }

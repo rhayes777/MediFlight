@@ -14,9 +14,15 @@ import CoreData
 
 class PillZonesTests: XCTestCase {
     
+    var context = MockDatabaseManager().managedObjectContext()
+    var date_1973 = Date(timeIntervalSince1970: 100000000)
+    var flight: Flight?
+    
     override func setUp() {
         super.setUp()
-        
+        context = MockDatabaseManager().managedObjectContext()
+        date_1973 = Date(timeIntervalSince1970: 100000000)
+        flight = Flight(from: "Europe/London", to: "Asia/Katmandu", on: date_1973 as NSDate, context: context)
     }
     
     override func tearDown() {
@@ -24,12 +30,13 @@ class PillZonesTests: XCTestCase {
         super.tearDown()
     }
     
-    func testTimeZones() {
-        let context = MockDatabaseManager().managedObjectContext()
-        let date_1973 = Date(timeIntervalSince1970: 100000000)
-        let flight = Flight(from: "Europe/London", to: "Asia/Katmandu", on: date_1973 as NSDate, context: context)
+    func testTimeDifference() {
+        context = MockDatabaseManager().managedObjectContext()
+        date_1973 = Date(timeIntervalSince1970: 100000000)
+        flight = Flight(from: "Europe/London", to: "Asia/Katmandu", on: date_1973 as NSDate, context: context)
+        // 5 hours 30 minutes
         
-        XCTAssertEqual(19800, flight.timeDifference)
+        XCTAssertEqual(19800, flight!.timeDifference)
     }
     
 }

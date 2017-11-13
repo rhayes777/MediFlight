@@ -5,6 +5,8 @@
 
 - Each pill time should find closest destination possibility. That is, for 2 pills and 12 hours the pills just swap!
 
+- Pill times could adjust independently prior to flight but should maintain a distance of atleast 3/4 the original distance
+
 - If dramatic change would be required (e.g. more than half an hour a day) and new pill times would not be at night then pill time of day should be changed
 
 Change Before Flight:

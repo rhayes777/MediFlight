@@ -49,6 +49,17 @@ class PillZonesTests: XCTestCase {
         XCTAssertEqual(TimeOfDay(hour:0, minute:5), flight!.apparentOldTimeOfDay(timeOfDay: TimeOfDay(hour:18, minute:35)))
     }
     
+    func testTimeOfDayDifference() {
+        let tod1 = TimeOfDay(hour: 10, minute: 30)
+        let tod2 = TimeOfDay(hour: 11, minute: 15)
+        XCTAssertEqual(TimeOfDayDelta(hour: 0, minute: 45), tod2 - tod1)
+        
+        XCTAssertEqual(TimeOfDayDelta(hour: 0, minute: 45), tod1.shortestDistanceTo(newTimeOfDay: tod2))
+        XCTAssertEqual(TimeOfDayDelta(hour: 0, minute: -45), tod2.shortestDistanceTo(newTimeOfDay: tod1))
+        
+        XCTAssertEqual(TimeOfDayDelta(hour: 0, minute: 45), tod2.shortestDistanceTo(newTimeOfDay: tod1).absolute)
+    }
+    
     func testSimpleSchedule() {
         let tenDaysBefore = Calendar.current.date(byAdding: .day, value: -33, to: date_1973)
         let results = flight!.schedule(doses: [Dose(timeOfDay: TimeOfDay(hour: 12), pills:[pill!], context: context)], fromDate: tenDaysBefore!)

@@ -42,9 +42,7 @@ public class Flight: NSManagedObject {
     /// - Parameter timeOfDay: The time of day in hours and minutes at the destination country
     /// - Returns: The time of day in hours and minutes that it will be in the origin country
     func apparentNewTimeOfDay(timeOfDay: TimeOfDay) -> TimeOfDay {
-        let hoursDifference = -self.timeDifference / 3600
-        let minutesDifference = (-self.timeDifference / 60) % 60
-        return timeOfDay.shiftedBy(hours: hoursDifference, minutes: minutesDifference)
+        return timeOfDay.shiftedBy(timeDifference: -self.timeDifference)
     }
     
     /// Determine what time of day it will be in the destination country at a given time of day in the origin country
@@ -52,19 +50,19 @@ public class Flight: NSManagedObject {
     /// - Parameter timeOfDay: The time of day in hours and minutes at the origin country
     /// - Returns: The time of day in hours and minutes that it will be in the destination country
     func apparentOldTimeOfDay(timeOfDay: TimeOfDay) -> TimeOfDay {
-        let hoursDifference = self.timeDifference / 3600
-        let minutesDifference = (self.timeDifference / 60) % 60
-        return timeOfDay.shiftedBy(hours: hoursDifference, minutes: minutesDifference)
+        return timeOfDay.shiftedBy(timeDifference: self.timeDifference)
     }
     
-    /// Generate a schedule for when pills should be
+    /// Generate a schedule for when pills should be taken
     ///
     /// - Parameters:
-    ///   - schedule: A set of doses taken in the origin country
+    ///   - doses: A set of doses taken in the origin country
     ///   - fromDate: The date from which to start the new schedule
-    /// - Returns: A new schedule for the transition to a new timezone and beyond
+    /// - Returns: A set of doses and dates on which pills should be taken
     func schedule(doses: [Dose], fromDate: Date) -> [(Date, [Dose])] {
         let timeInterval = (self.on! as Date).timeIntervalSince(fromDate)
+        let destinationTimes = doses.map { self.apparentNewTimeOfDay(timeOfDay: $0.timeOfDay )}
+        
         let days = Int(timeInterval / (3600 * 24))
         var tuples: [(Date, [Dose])] = []
         for day in 0..<days {

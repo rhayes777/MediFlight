@@ -63,7 +63,7 @@ public class Flight: NSManagedObject {
     ///   - schedule: A set of doses taken in the origin country
     ///   - fromDate: The date from which to start the new schedule
     /// - Returns: A new schedule for the transition to a new timezone and beyond
-    func schedule(schedule: Schedule, fromDate: Date) -> Schedule {
+    func schedule(doses: [Dose], fromDate: Date) -> [(Date, [Dose])] {
         let timeInterval = (self.on! as Date).timeIntervalSince(fromDate)
         let days = Int(timeInterval / (3600 * 24))
         var tuples: [(Date, [Dose])] = []

@@ -16,3 +16,8 @@ Change Before Flight:
 Change After Flight:
 - At most half an hour a day
 - Convert from current time to destination time in half hour increments
+
+
+Schedule:
+- After the last alarm for a dose a repeating alarm needs to be set for that date
+- A schedule can be kept and a new flight added to generate the next schedule

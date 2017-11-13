@@ -13,6 +13,14 @@ public class TimeOfDayDelta: TimeOfDay {
     var absolute: TimeOfDayDelta {
         return TimeOfDayDelta(minutes: abs(self.minutes))
     }
+    
+    public static func /(lhs: TimeOfDayDelta, rhs: Int) -> TimeOfDayDelta {
+        return TimeOfDayDelta(minutes: lhs.minutes / rhs)
+    }
+    
+    public static func *(lhs: Int, rhs: TimeOfDayDelta) -> TimeOfDayDelta {
+        return TimeOfDayDelta(minutes: lhs * rhs.minutes)
+    }
 }
 
 public class TimeOfDay: Equatable, CustomStringConvertible {

@@ -62,10 +62,11 @@ class PillZonesTests: XCTestCase {
     
     func testSimpleSchedule() {
         let tenDaysBefore = Calendar.current.date(byAdding: .day, value: -33, to: date_1973)
-        let results = flight!.schedule(doses: [Dose(timeOfDay: TimeOfDay(hour: 12), pills:[pill!], context: context)], fromDate: tenDaysBefore!)
+        let results = flight!.schedule(doses: [Dose(timeOfDay: TimeOfDay(hour: 12), pills:[pill!], context: context)], fromDate: tenDaysBefore!, context: context)
         XCTAssertEqual(33, results.count)
         XCTAssertEqual(tenDaysBefore, results[0].0)
-        XCTAssertEqual(10, NSInteger(results[1].0.timeIntervalSince(results[0].0)) / 60 % 60)
+        XCTAssertEqual(86400, NSInteger(results[1].0.timeIntervalSince(results[0].0)))
+        XCTAssertEqual(TimeOfDayDelta(minutes:-10), results[1].1[0].timeOfDay - results[0].1[0].timeOfDay)
     }
     
 }

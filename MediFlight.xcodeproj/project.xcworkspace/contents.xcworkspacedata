@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:PillZones.xcodeproj">
+      location = "self:/Users/richardhayes/projects/pillzones/ios/PillZones/MediFlight.xcodeproj">
    </FileRef>
 </Workspace>

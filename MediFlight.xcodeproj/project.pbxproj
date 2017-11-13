@@ -10,15 +10,15 @@
 		5B06C0401FB456C100516682 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06C03F1FB456C100516682 /* AppDelegate.swift */; };
 		5B06C0421FB456C100516682 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06C0411FB456C100516682 /* ViewController.swift */; };
 		5B06C0451FB456C100516682 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B06C0431FB456C100516682 /* Main.storyboard */; };
-		5B06C0481FB456C100516682 /* PillZones.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B06C0461FB456C100516682 /* PillZones.xcdatamodeld */; };
+		5B06C0481FB456C100516682 /* MediFlight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B06C0461FB456C100516682 /* MediFlight.xcdatamodeld */; };
 		5B06C04A1FB456C100516682 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B06C0491FB456C100516682 /* Assets.xcassets */; };
 		5B06C04D1FB456C100516682 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B06C04B1FB456C100516682 /* LaunchScreen.storyboard */; };
-		5B06C0581FB456C100516682 /* PillZonesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06C0571FB456C100516682 /* PillZonesTests.swift */; };
+		5B06C0581FB456C100516682 /* MediFlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06C0571FB456C100516682 /* MediFlightTests.swift */; };
 		5B06C0681FB45F1900516682 /* Flight+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06C0661FB45F1900516682 /* Flight+CoreDataClass.swift */; };
 		5B06C0691FB45F1900516682 /* Flight+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06C0671FB45F1900516682 /* Flight+CoreDataProperties.swift */; };
 		5B06C06B1FB465B400516682 /* Flight+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06C0661FB45F1900516682 /* Flight+CoreDataClass.swift */; };
 		5B06C06C1FB4662C00516682 /* Flight+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06C0671FB45F1900516682 /* Flight+CoreDataProperties.swift */; };
-		5BA23DE71FB4921F00C7B39A /* PillZones.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B06C0461FB456C100516682 /* PillZones.xcdatamodeld */; };
+		5BA23DE71FB4921F00C7B39A /* MediFlight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B06C0461FB456C100516682 /* MediFlight.xcdatamodeld */; };
 		5BA23DE91FB493E700C7B39A /* MockDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DE81FB493E700C7B39A /* MockDatabaseManager.swift */; };
 		5BA23DF01FB49AD700C7B39A /* Pill+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DEA1FB49AD700C7B39A /* Pill+CoreDataClass.swift */; };
 		5BA23DF11FB49AD700C7B39A /* Pill+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA23DEB1FB49AD700C7B39A /* Pill+CoreDataProperties.swift */; };
@@ -43,7 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B06C03C1FB456C100516682 /* PillZones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillZones.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B06C03C1FB456C100516682 /* MediFlight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediFlight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B06C03F1FB456C100516682 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B06C0411FB456C100516682 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5B06C0441FB456C100516682 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,8 +51,8 @@
 		5B06C0491FB456C100516682 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B06C04C1FB456C100516682 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B06C04E1FB456C100516682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B06C0531FB456C100516682 /* PillZonesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PillZonesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B06C0571FB456C100516682 /* PillZonesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillZonesTests.swift; sourceTree = "<group>"; };
+		5B06C0531FB456C100516682 /* MediFlightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediFlightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B06C0571FB456C100516682 /* MediFlightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediFlightTests.swift; sourceTree = "<group>"; };
 		5B06C0591FB456C100516682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B06C0661FB45F1900516682 /* Flight+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5B06C0671FB45F1900516682 /* Flight+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -92,8 +92,8 @@
 				5BA23DEE1FB49AD700C7B39A /* TimeOfDay.swift */,
 				5B06C0661FB45F1900516682 /* Flight+CoreDataClass.swift */,
 				5B06C0671FB45F1900516682 /* Flight+CoreDataProperties.swift */,
-				5B06C03E1FB456C100516682 /* PillZones */,
-				5B06C0561FB456C100516682 /* PillZonesTests */,
+				5B06C03E1FB456C100516682 /* MediFlight */,
+				5B06C0561FB456C100516682 /* MediFlightTests */,
 				5B06C03D1FB456C100516682 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,13 +101,13 @@
 		5B06C03D1FB456C100516682 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B06C03C1FB456C100516682 /* PillZones.app */,
-				5B06C0531FB456C100516682 /* PillZonesTests.xctest */,
+				5B06C03C1FB456C100516682 /* MediFlight.app */,
+				5B06C0531FB456C100516682 /* MediFlightTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5B06C03E1FB456C100516682 /* PillZones */ = {
+		5B06C03E1FB456C100516682 /* MediFlight */ = {
 			isa = PBXGroup;
 			children = (
 				5B06C03F1FB456C100516682 /* AppDelegate.swift */,
@@ -116,27 +116,27 @@
 				5B06C0491FB456C100516682 /* Assets.xcassets */,
 				5B06C04B1FB456C100516682 /* LaunchScreen.storyboard */,
 				5B06C04E1FB456C100516682 /* Info.plist */,
-				5B06C0461FB456C100516682 /* PillZones.xcdatamodeld */,
+				5B06C0461FB456C100516682 /* MediFlight.xcdatamodeld */,
 			);
-			path = PillZones;
+			path = MediFlight;
 			sourceTree = "<group>";
 		};
-		5B06C0561FB456C100516682 /* PillZonesTests */ = {
+		5B06C0561FB456C100516682 /* MediFlightTests */ = {
 			isa = PBXGroup;
 			children = (
-				5B06C0571FB456C100516682 /* PillZonesTests.swift */,
+				5B06C0571FB456C100516682 /* MediFlightTests.swift */,
 				5B06C0591FB456C100516682 /* Info.plist */,
 				5BA23DE81FB493E700C7B39A /* MockDatabaseManager.swift */,
 			);
-			path = PillZonesTests;
+			path = MediFlightTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5B06C03B1FB456C100516682 /* PillZones */ = {
+		5B06C03B1FB456C100516682 /* MediFlight */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B06C05C1FB456C100516682 /* Build configuration list for PBXNativeTarget "PillZones" */;
+			buildConfigurationList = 5B06C05C1FB456C100516682 /* Build configuration list for PBXNativeTarget "MediFlight" */;
 			buildPhases = (
 				5B06C0381FB456C100516682 /* Sources */,
 				5B06C0391FB456C100516682 /* Frameworks */,
@@ -146,14 +146,14 @@
 			);
 			dependencies = (
 			);
-			name = PillZones;
+			name = MediFlight;
 			productName = PillZones;
-			productReference = 5B06C03C1FB456C100516682 /* PillZones.app */;
+			productReference = 5B06C03C1FB456C100516682 /* MediFlight.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5B06C0521FB456C100516682 /* PillZonesTests */ = {
+		5B06C0521FB456C100516682 /* MediFlightTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B06C05F1FB456C100516682 /* Build configuration list for PBXNativeTarget "PillZonesTests" */;
+			buildConfigurationList = 5B06C05F1FB456C100516682 /* Build configuration list for PBXNativeTarget "MediFlightTests" */;
 			buildPhases = (
 				5B06C04F1FB456C100516682 /* Sources */,
 				5B06C0501FB456C100516682 /* Frameworks */,
@@ -164,9 +164,9 @@
 			dependencies = (
 				5B06C0551FB456C100516682 /* PBXTargetDependency */,
 			);
-			name = PillZonesTests;
+			name = MediFlightTests;
 			productName = PillZonesTests;
-			productReference = 5B06C0531FB456C100516682 /* PillZonesTests.xctest */;
+			productReference = 5B06C0531FB456C100516682 /* MediFlightTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -190,7 +190,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5B06C0371FB456C000516682 /* Build configuration list for PBXProject "PillZones" */;
+			buildConfigurationList = 5B06C0371FB456C000516682 /* Build configuration list for PBXProject "MediFlight" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -203,8 +203,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5B06C03B1FB456C100516682 /* PillZones */,
-				5B06C0521FB456C100516682 /* PillZonesTests */,
+				5B06C03B1FB456C100516682 /* MediFlight */,
+				5B06C0521FB456C100516682 /* MediFlightTests */,
 			);
 		};
 /* End PBXProject section */
@@ -234,7 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B06C0481FB456C100516682 /* PillZones.xcdatamodeld in Sources */,
+				5B06C0481FB456C100516682 /* MediFlight.xcdatamodeld in Sources */,
 				5B06C0421FB456C100516682 /* ViewController.swift in Sources */,
 				5BA23DFA1FB49EC100C7B39A /* TimeOfDay.swift in Sources */,
 				5BA23DF81FB49EC100C7B39A /* Dose+CoreDataClass.swift in Sources */,
@@ -256,9 +256,9 @@
 				5BA23DF41FB49AD700C7B39A /* TimeOfDay.swift in Sources */,
 				5BA23DF21FB49AD700C7B39A /* Dose+CoreDataClass.swift in Sources */,
 				5BA23DF01FB49AD700C7B39A /* Pill+CoreDataClass.swift in Sources */,
-				5B06C0581FB456C100516682 /* PillZonesTests.swift in Sources */,
+				5B06C0581FB456C100516682 /* MediFlightTests.swift in Sources */,
 				5BA23DF11FB49AD700C7B39A /* Pill+CoreDataProperties.swift in Sources */,
-				5BA23DE71FB4921F00C7B39A /* PillZones.xcdatamodeld in Sources */,
+				5BA23DE71FB4921F00C7B39A /* MediFlight.xcdatamodeld in Sources */,
 				5B06C06B1FB465B400516682 /* Flight+CoreDataClass.swift in Sources */,
 				5BA23DF31FB49AD700C7B39A /* Dose+CoreDataProperties.swift in Sources */,
 			);
@@ -269,7 +269,7 @@
 /* Begin PBXTargetDependency section */
 		5B06C0551FB456C100516682 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5B06C03B1FB456C100516682 /* PillZones */;
+			target = 5B06C03B1FB456C100516682 /* MediFlight */;
 			targetProxy = 5B06C0541FB456C100516682 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -407,9 +407,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E8NTBL5NFT;
-				INFOPLIST_FILE = PillZones/Info.plist;
+				INFOPLIST_FILE = MediFlight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.co.farming.PillZones;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.farming.MediFlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -422,9 +422,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E8NTBL5NFT;
-				INFOPLIST_FILE = PillZones/Info.plist;
+				INFOPLIST_FILE = MediFlight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.co.farming.PillZones;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.farming.MediFlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -438,13 +438,13 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E8NTBL5NFT;
-				INFOPLIST_FILE = PillZonesTests/Info.plist;
+				INFOPLIST_FILE = MediFlightTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.co.farming.PillZonesTests;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.farming.MediFlightTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PillZones.app/PillZones";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MediFlight.app/MediFlight";
 			};
 			name = Debug;
 		};
@@ -455,20 +455,20 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E8NTBL5NFT;
-				INFOPLIST_FILE = PillZonesTests/Info.plist;
+				INFOPLIST_FILE = MediFlightTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.co.farming.PillZonesTests;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.farming.MediFlightTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PillZones.app/PillZones";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MediFlight.app/MediFlight";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5B06C0371FB456C000516682 /* Build configuration list for PBXProject "PillZones" */ = {
+		5B06C0371FB456C000516682 /* Build configuration list for PBXProject "MediFlight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B06C05A1FB456C100516682 /* Debug */,
@@ -477,7 +477,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B06C05C1FB456C100516682 /* Build configuration list for PBXNativeTarget "PillZones" */ = {
+		5B06C05C1FB456C100516682 /* Build configuration list for PBXNativeTarget "MediFlight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B06C05D1FB456C100516682 /* Debug */,
@@ -486,7 +486,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B06C05F1FB456C100516682 /* Build configuration list for PBXNativeTarget "PillZonesTests" */ = {
+		5B06C05F1FB456C100516682 /* Build configuration list for PBXNativeTarget "MediFlightTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B06C0601FB456C100516682 /* Debug */,
@@ -498,13 +498,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5B06C0461FB456C100516682 /* PillZones.xcdatamodeld */ = {
+		5B06C0461FB456C100516682 /* MediFlight.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				5B06C0471FB456C100516682 /* PillZones.xcdatamodel */,
 			);
 			currentVersion = 5B06C0471FB456C100516682 /* PillZones.xcdatamodel */;
-			path = PillZones.xcdatamodeld;
+			path = MediFlight.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -9,10 +9,10 @@
 import XCTest
 import CoreData
 
-@testable import PillZones
+@testable import MediFlight
 
 
-class PillZonesTests: XCTestCase {
+class MediFlightTests: XCTestCase {
     
     var context = MockDatabaseManager().managedObjectContext()
     var date_1973 = Date(timeIntervalSince1970: 100000000)

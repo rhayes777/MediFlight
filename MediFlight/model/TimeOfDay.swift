@@ -27,6 +27,8 @@ public class TimeOfDay: Equatable, CustomStringConvertible {
     
     let minutes: Int
     public static let MINUTES_IN_A_DAY = 1440
+    public static let NIGHT_START = 23
+    public static let NIGHT_END = 8
     
     public init(hour: Int, minute: Int=0) {
         minutes = 60 * hour + minute
@@ -34,6 +36,14 @@ public class TimeOfDay: Equatable, CustomStringConvertible {
     
     public init(minutes: Int) {
         self.minutes = minutes
+    }
+    
+    public static var nightStart: TimeOfDay {
+        return TimeOfDay(hour: TimeOfDay.NIGHT_START)
+    }
+    
+    public static var nightEnd: TimeOfDay {
+        return TimeOfDay(hour: TimeOfDay.NIGHT_END)
     }
     
     public static func ==(lhs: TimeOfDay, rhs: TimeOfDay) -> Bool {
@@ -54,6 +64,16 @@ public class TimeOfDay: Equatable, CustomStringConvertible {
     
     public static func >(lhs: TimeOfDay, rhs: TimeOfDay) -> Bool {
         return lhs.minutes > rhs.minutes
+    }
+    
+    /// Determines whether the shortest time difference between this time of day and another is through the night
+    ///
+    /// - Parameter from: the TimeOfDay to which to compare this TimeOfDay
+    /// - Returns: true if the shortest distance between this TimeOfDay and another TimeOfDay is through the night
+    public func isThroughNight(from: TimeOfDay) -> Bool {
+        let shortestDistance = from.shortestDistanceTo(newTimeOfDay: self)
+        let sum = from + shortestDistance
+        return sum.hour < TimeOfDay.NIGHT_END || sum.hour >= TimeOfDay.NIGHT_START
     }
     
     /// Returns a time delta representing the shortest difference in hours and minutes between two times of day. A negative hour and/or minute indicates that the difference is backwards in time

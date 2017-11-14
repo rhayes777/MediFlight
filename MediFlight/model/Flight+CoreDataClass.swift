@@ -58,7 +58,7 @@ public class Flight: NSManagedObject {
     /// - Parameters:
     ///   - doses: A set of doses taken in the origin country
     ///   - fromDate: The date from which to start the new schedule
-    /// - Returns: A set of doses and dates on which pills should be taken
+    /// - Returns: A set of doses and dates on which pills should be taken. The dates are in GMT
     func schedule(doses: [Dose], fromDate: Date, context: NSManagedObjectContext) -> [(Date, [Dose])] {
         let timeInterval = (self.on! as Date).timeIntervalSince(fromDate)
         let days = Int(timeInterval / (3600 * 24))
@@ -77,6 +77,25 @@ public class Flight: NSManagedObject {
             tuples.append((fromDate + TimeInterval(3600 * 24 * day), newDoses))
         }
         return tuples
+    }
+    
+    func preFlightDoses(forDose dose: Dose, withDays days: Int, context: NSManagedObjectContext) -> [Dose] {
+        var destinationTime = self.apparentNewTimeOfDay(timeOfDay: dose.timeOfDay)
+        if destinationTime.isThroughNight(from: dose.timeOfDay) {
+            if dose.timeOfDay.shortestDistanceTo(newTimeOfDay: destinationTime) < TimeOfDayDelta(minutes: 0) {
+                destinationTime = TimeOfDay.nightEnd
+            }
+            else {
+                destinationTime = TimeOfDay.nightStart
+            }
+        }
+        let shortestDistance = dose.timeOfDay.shortestDistanceTo(newTimeOfDay: destinationTime)
+        let step = shortestDistance / days
+        var newDoses: [Dose] = []
+        for day in 0..<days {
+            newDoses.append(Dose(timeOfDay: dose.timeOfDay + day * step, pills: dose.pills as! Set<Pill>, context: context))
+        }
+        return newDoses
     }
 
 }

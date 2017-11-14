@@ -61,12 +61,34 @@ class MediFlightTests: XCTestCase {
     }
     
     func testSimpleSchedule() {
-        let tenDaysBefore = Calendar.current.date(byAdding: .day, value: -33, to: date_1973)
-        let results = flight!.schedule(doses: [Dose(timeOfDay: TimeOfDay(hour: 12), pills:[pill!], context: context)], fromDate: tenDaysBefore!, context: context)
+        let thirtyThreeDaysBefore = Calendar.current.date(byAdding: .day, value: -33, to: date_1973)
+        let doses = [Dose(timeOfDay: TimeOfDay(hour: 12), pills:[pill!], context: context)]
+        let results = flight!.schedule(doses: doses, fromDate: thirtyThreeDaysBefore!, context: context)
         XCTAssertEqual(33, results.count)
-        XCTAssertEqual(tenDaysBefore, results[0].0)
+        XCTAssertEqual(thirtyThreeDaysBefore, results[0].0)
         XCTAssertEqual(86400, NSInteger(results[1].0.timeIntervalSince(results[0].0)))
         XCTAssertEqual(TimeOfDayDelta(minutes:-10), results[1].1[0].timeOfDay - results[0].1[0].timeOfDay)
+    }
+    
+    func testIsThroughNight() {
+        XCTAssertFalse(TimeOfDay(hour: 12).isThroughNight(from: TimeOfDay(hour: 9)))
+        XCTAssertFalse(TimeOfDay(hour: 9).isThroughNight(from: TimeOfDay(hour: 12)))
+        XCTAssertTrue(TimeOfDay(hour: 22).isThroughNight(from: TimeOfDay(hour: 8)))
+        XCTAssertTrue(TimeOfDay(hour: 8).isThroughNight(from: TimeOfDay(hour: 22)))
+    }
+    
+    func testPreFlightDoses() {
+        let dose = Dose(timeOfDay: TimeOfDay(hour: 9), pills:[pill!], context: context)
+        let daysToFlight = 2
+        let results = flight!.preFlightDoses(forDose: dose, withDays: daysToFlight, context: context)
+        XCTAssertEqual(2, results.count)
+    }
+    
+    func testNightTimeSchedule() {
+        let tenDaysBefore = Calendar.current.date(byAdding: .day, value: -10, to: date_1973)
+        let doses = [Dose(timeOfDay: TimeOfDay(hour: 8), pills:[pill!], context: context)]
+        let results = flight!.schedule(doses: doses, fromDate: tenDaysBefore!, context: context)
+        XCTAssertEqual(21, results.count)
     }
     
 }

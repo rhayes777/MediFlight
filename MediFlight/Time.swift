@@ -8,9 +8,14 @@
 
 import UIKit
 
-class TimeZone: NSObject {
+class Time: NSObject {
+    
+    public let systemTimeZone: TimeZone
     
 //    You can set the default time zone within your application using setDefaultTimeZone:. You can access this default time zone at any time with the defaultTimeZone class method. With the localTimeZone class method you can get a time zone object that automatically updates itself to reflect changes to the default time zone.
-    
+    override init() {
+        systemTimeZone = TimeZone.current
+        NSTimeZone.default = TimeZone(secondsFromGMT: 0)!
+    }
 
 }

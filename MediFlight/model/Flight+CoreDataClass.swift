@@ -65,7 +65,10 @@ public class Flight: NSManagedObject {
     
     func matchDoses(originDoses: [Dose], targetDoses: [Dose]) -> [(Dose, Dose)] {
         return originDoses.map({ (dose) -> (Dose, Dose) in
-            let match = targetDoses.reduce(targetDoses[0], { (current, new) -> Dose in
+            let match = targetDoses.reduce(targetDoses.filter{ $0.pills == dose.pills } [0], { (current, new) -> Dose in
+                if new.pills != dose.pills {
+                    return current
+                }
                 let newDifference = new.timeOfDay.shortestDistanceTo(newTimeOfDay: dose.timeOfDay).absolute
                 let currentDifference = current.timeOfDay.shortestDistanceTo(newTimeOfDay: dose.timeOfDay).absolute
                 return newDifference < currentDifference ? new : current

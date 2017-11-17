@@ -103,6 +103,16 @@ class MediFlightTests: XCTestCase {
         
         XCTAssertEqual(matches9[1].0, doses[1])
         XCTAssertEqual(matches9[1].1.timeOfDay, flight9.apparentNew(timeOfDay: doses[0].timeOfDay))
+        
+        
+        doses = [Dose(timeOfDay: TimeOfDay(hour: 10), pills:[pill!, Pill(name: "Kepra", dosage: 50, context: context)], context: context), Dose(timeOfDay: TimeOfDay(hour: 22), pills:[pill!], context: context)]
+        
+        let nonmatches = flight9.matchDoses(originDoses:doses, targetDoses:doses.map { flight9.apparentNew(dose: $0, context: context) })
+        XCTAssertEqual(nonmatches[0].0, doses[0])
+        XCTAssertEqual(nonmatches[0].1.timeOfDay, flight9.apparentNew(timeOfDay: doses[0].timeOfDay))
+        
+        XCTAssertEqual(nonmatches[1].0, doses[1])
+        XCTAssertEqual(nonmatches[1].1.timeOfDay, flight9.apparentNew(timeOfDay: doses[1].timeOfDay))
     }
     
     func testNightTimeSchedule() {

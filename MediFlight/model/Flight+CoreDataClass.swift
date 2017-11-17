@@ -41,7 +41,7 @@ public class Flight: NSManagedObject {
     ///
     /// - Parameter timeOfDay: The time of day in hours and minutes at the destination country
     /// - Returns: The time of day in hours and minutes that it will be in the origin country
-    func apparentNewTimeOfDay(timeOfDay: TimeOfDay) -> TimeOfDay {
+    func apparentNew(timeOfDay: TimeOfDay) -> TimeOfDay {
         return timeOfDay.shiftedBy(timeDifference: -self.timeDifference)
     }
     
@@ -49,8 +49,29 @@ public class Flight: NSManagedObject {
     ///
     /// - Parameter timeOfDay: The time of day in hours and minutes at the origin country
     /// - Returns: The time of day in hours and minutes that it will be in the destination country
-    func apparentOldTimeOfDay(timeOfDay: TimeOfDay) -> TimeOfDay {
+    func apparentOld(timeOfDay: TimeOfDay) -> TimeOfDay {
         return timeOfDay.shiftedBy(timeDifference: self.timeDifference)
+    }
+    
+    /// Create a dose at the equivalent time in the new time zone with the apparent time of day in the origin country
+    ///
+    /// - Parameters:
+    ///   - dose: a dose in the origin country
+    ///   - context: managed object context
+    /// - Returns: a dose in the target country with the apparent time of day in the origin country
+    func apparentNew(dose: Dose, context: NSManagedObjectContext) -> Dose {
+        return Dose(timeOfDay: self.apparentNew(timeOfDay: dose.timeOfDay), pills: dose.pills as! Set<Pill>, context: context)
+    }
+    
+    func matchDoses(originDoses: [Dose], targetDoses: [Dose]) -> [(Dose, Dose)] {
+        return originDoses.map({ (dose) -> (Dose, Dose) in
+            let match = targetDoses.reduce(targetDoses[0], { (current, new) -> Dose in
+                let newDifference = new.timeOfDay.shortestDistanceTo(newTimeOfDay: dose.timeOfDay).absolute
+                let currentDifference = current.timeOfDay.shortestDistanceTo(newTimeOfDay: dose.timeOfDay).absolute
+                return newDifference < currentDifference ? new : current
+            })
+            return (dose, match)
+        })
     }
     
     /// Generate a schedule for when pills should be taken
@@ -62,7 +83,7 @@ public class Flight: NSManagedObject {
     func schedule(doses: [Dose], fromDate: Date, context: NSManagedObjectContext) -> [(Date, [Dose])] {
         let timeInterval = (self.on! as Date).timeIntervalSince(fromDate)
         let days = Int(timeInterval / (3600 * 24))
-        let destinationTimes = doses.map { self.apparentNewTimeOfDay(timeOfDay: $0.timeOfDay )}
+        let destinationTimes = doses.map { self.apparentNew(timeOfDay: $0.timeOfDay )}
         let shortestDifferences = zip(doses, destinationTimes).map { (dose, destinationTime) -> TimeOfDayDelta in
             return dose.timeOfDay.shortestDistanceTo(newTimeOfDay: destinationTime)
         }
@@ -80,7 +101,7 @@ public class Flight: NSManagedObject {
     }
     
     func preFlightDoses(forDose dose: Dose, withDays days: Int, context: NSManagedObjectContext) -> [Dose] {
-        var destinationTime = self.apparentNewTimeOfDay(timeOfDay: dose.timeOfDay)
+        var destinationTime = self.apparentNew(timeOfDay: dose.timeOfDay)
         if destinationTime.isThroughNight(from: dose.timeOfDay) {
             if dose.timeOfDay.shortestDistanceTo(newTimeOfDay: destinationTime) < TimeOfDayDelta(minutes: 0) {
                 destinationTime = TimeOfDay.nightEnd

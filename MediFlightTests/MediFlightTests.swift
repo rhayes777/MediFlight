@@ -38,15 +38,15 @@ class MediFlightTests: XCTestCase {
     }
     
     func testApparentNewTimeOfDay() {
-        XCTAssertEqual(TimeOfDay(hour:4, minute: 30), flight!.apparentNewTimeOfDay(timeOfDay: TimeOfDay(hour:10, minute: 0)))
-        XCTAssertEqual(TimeOfDay(hour:22, minute: 30), flight!.apparentNewTimeOfDay(timeOfDay: TimeOfDay(hour:4, minute: 0)))
-        XCTAssertEqual(TimeOfDay(hour:23, minute: 35), flight!.apparentNewTimeOfDay(timeOfDay: TimeOfDay(hour:5, minute: 5)))
+        XCTAssertEqual(TimeOfDay(hour:4, minute: 30), flight!.apparentNew(timeOfDay: TimeOfDay(hour:10, minute: 0)))
+        XCTAssertEqual(TimeOfDay(hour:22, minute: 30), flight!.apparentNew(timeOfDay: TimeOfDay(hour:4, minute: 0)))
+        XCTAssertEqual(TimeOfDay(hour:23, minute: 35), flight!.apparentNew(timeOfDay: TimeOfDay(hour:5, minute: 5)))
     }
     
     func testApparentOldTimeOfDay() {
-        XCTAssertEqual(TimeOfDay(hour:15, minute:30), flight!.apparentOldTimeOfDay(timeOfDay: TimeOfDay(hour:10, minute:0)))
-        XCTAssertEqual(TimeOfDay(hour:4, minute:30), flight!.apparentOldTimeOfDay(timeOfDay: TimeOfDay(hour:23, minute:0)))
-        XCTAssertEqual(TimeOfDay(hour:0, minute:5), flight!.apparentOldTimeOfDay(timeOfDay: TimeOfDay(hour:18, minute:35)))
+        XCTAssertEqual(TimeOfDay(hour:15, minute:30), flight!.apparentOld(timeOfDay: TimeOfDay(hour:10, minute:0)))
+        XCTAssertEqual(TimeOfDay(hour:4, minute:30), flight!.apparentOld(timeOfDay: TimeOfDay(hour:23, minute:0)))
+        XCTAssertEqual(TimeOfDay(hour:0, minute:5), flight!.apparentOld(timeOfDay: TimeOfDay(hour:18, minute:35)))
     }
     
     func testTimeOfDayDifference() {
@@ -82,6 +82,27 @@ class MediFlightTests: XCTestCase {
         let daysToFlight = 2
         let results = flight!.preFlightDoses(forDose: dose, withDays: daysToFlight, context: context)
         XCTAssertEqual(2, results.count)
+    }
+    
+    func testTargetDose() {
+        let dose = Dose(timeOfDay: TimeOfDay(hour: 10), pills:[pill!], context: context)
+        XCTAssertEqual(TimeOfDay(hour:4, minute: 30), flight!.apparentNew(dose: dose, context: context).timeOfDay)
+    }
+    
+    func testMatchDoses() {
+        var doses = [Dose(timeOfDay: TimeOfDay(hour: 12), pills:[pill!], context: context)]
+        let matches = flight!.matchDoses(originDoses:doses, targetDoses:doses.map { flight!.apparentNew(dose: $0, context: context) })
+        XCTAssertEqual(1, matches.count)
+        XCTAssertEqual(doses[0], matches[0].0)
+        
+        let flight9 = Flight(from: "Europe/London", to: "Asia/Seoul", on: date_1973 as NSDate, context: context)
+        doses = [Dose(timeOfDay: TimeOfDay(hour: 10), pills:[pill!], context: context), Dose(timeOfDay: TimeOfDay(hour: 22), pills:[pill!], context: context)]
+        let matches9 = flight9.matchDoses(originDoses:doses, targetDoses:doses.map { flight9.apparentNew(dose: $0, context: context) })
+        XCTAssertEqual(matches9[0].0, doses[0])
+        XCTAssertEqual(matches9[0].1.timeOfDay, flight9.apparentNew(timeOfDay: doses[1].timeOfDay))
+        
+        XCTAssertEqual(matches9[1].0, doses[1])
+        XCTAssertEqual(matches9[1].1.timeOfDay, flight9.apparentNew(timeOfDay: doses[0].timeOfDay))
     }
     
     func testNightTimeSchedule() {
